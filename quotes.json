@@ -1,0 +1,23 @@
+{
+	"quotes": [{
+    "firstName": "Alibi",
+    "lastName": "Einstein",
+			"quote": "We are all but figments of tomorrow"
+		},
+		{
+      "firstName": "Steevie",
+			"lastName": "Hawking",
+			"quote": "We are all but figments of never"
+		},
+		{
+      "firstName": "Kriss",
+			"lastName": "Kakow",
+			"quote": "I've never seen anything but a figment of the present"
+		},
+		{
+      "firstName": "Davey",
+			"lastName": "Attoonborough",
+			"quote": "I've seen so many figments of so many things, I don't know where I am any more"
+		}
+	]
+}
