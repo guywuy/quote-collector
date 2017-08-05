@@ -13,22 +13,14 @@ class App extends Component {
   }
 
   componentWillMount(){
-    //TODO
-    //Get any quotes from localstorage
-    if (Math.random()>0.5){
-    this.setState({
-      quotes: [
-        {
-          name: 'Einstein',
-          quote: 'We are all but figments of tomorrow'
-        },
-        {
-          name: 'Hawking',
-          quote: 'We are all but figments of never'
-        }
-      ]
-    })
-  }
+    // //Get any quotes from localstorage
+    if(!localStorage.getItem('quotes')) {
+      this.setState({})
+    } else {
+      this.setState({
+        'quotes' : JSON.parse(localStorage.getItem('quotes'))
+      });
+    }
   }
 
   handleSubmit(quote, author){
@@ -37,7 +29,9 @@ class App extends Component {
       'name': author,
       'quote': quote
     })
-    this.setState({quotes: newArray});
+
+    this.setState({'quotes': newArray});
+    localStorage.setItem('quotes', JSON.stringify(newArray));
   }
 
   render() {

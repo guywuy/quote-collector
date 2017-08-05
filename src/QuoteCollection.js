@@ -14,6 +14,8 @@ export class QuoteCollection extends React.Component {
     if (quotes===undefined || quotes.length===0 || quotes===null){
       quotesDisplay = <p classList='no-quotes'>"Oops, looks like you don't have any quotes yet".</p>
     } else {
+      console.log(quotes);
+
       quotesDisplay = quotes.map(quote=>{
         return <Quote name={quote.name} quote={quote.quote} />
       })

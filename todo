@@ -1,12 +1,10 @@
+Ability to delete quotes, and move them up or down.
+
 Use modernizer to check capabilities of browsers... for localstorage? and placeholders in form.
 
 Add proptypes (e.g. array to QuoteCollection)
 
-Work out saving quotes to and retrieving from localstorage.
-  - QuoteAdder submit handler also causes localstorage json to be updated, as well as qc state.
-  - To check localstorage for json file and if present, load data from that
-
-  Format quotes better and style all content.
+Format quotes better and style all content.
   Style form as a grid whole top level for quote input,
   other field and input on second row.
 
