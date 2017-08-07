@@ -20,16 +20,10 @@ export class QuoteAdder extends React.Component {
       <div className="quote-adder">
         <h1>Add a quote</h1>
         <form onSubmit={this.handleSubmit} >
-        <div id='submit-quote-container'>
-          <label> Quote
-            <input type="text" required id="submitted-quote" name="submitted-quote" placeholder="Your quote here"/>
-          </label>
-        </div>
-          <div id='submit-author-container'>
-            <label> Author
-              <input type="text" required id="submitted-quote-name" name="submitted-quote-name" placeholder="Who said that?"/>
-            </label>
-          </div>
+          <label htmlFor='submitted-quote'> Quote </label>
+          <input type="text" required id="submitted-quote" name="submitted-quote" placeholder="Your quote here"/>
+          <label htmlFor='submitted-quote-name'> Author </label>
+          <input type="text" required id="submitted-quote-name" name="submitted-quote-name" placeholder="Who said that?"/>
           <input type="submit" id="submit-input"  />
         </form>
       </div>

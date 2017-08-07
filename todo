@@ -3,9 +3,6 @@ Ability to move quotes up or down, edit them.
 Use modernizer to check capabilities of browsers... for localstorage? and placeholders in form.
 
 
-Format quotes better and style all content.
-  Style form as a grid whole top level for quote input,
-  other field and input on second row.
 
-Responsive = big screen have left half quotes, right half addquoteform
+Style Responsively = big screen have left half quotes, right half addquoteform
 smallscreen one on top, show max of 5 quotes.
