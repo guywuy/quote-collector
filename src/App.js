@@ -7,9 +7,11 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      "quotes" : []
+      "quotes" : [],
+      'currentIndex' : 0
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleQuoteSubmit = this.handleQuoteSubmit.bind(this);
+    this.handleQuoteDelete = this.handleQuoteDelete.bind(this);
   }
 
   componentWillMount(){
@@ -17,29 +19,48 @@ class App extends Component {
     if(!localStorage.getItem('quotes')) {
       this.setState({})
     } else {
+      let storedQuotes = JSON.parse(localStorage.getItem('quotes'));
+      let lastIndex = storedQuotes.length>0 ? storedQuotes[storedQuotes.length-1].id : -1;
+      console.log(lastIndex);
       this.setState({
-        'quotes' : JSON.parse(localStorage.getItem('quotes'))
+        'quotes' : storedQuotes,
+        'currentIndex' : lastIndex + 1
       });
     }
   }
 
-  handleSubmit(quote, author){
-    let newArray = this.state.quotes.slice();
-    newArray.push({
+  handleQuoteSubmit(quote, author){
+    let quoteArray = this.state.quotes.slice();
+    quoteArray.push({
+      'id' : this.state.currentIndex,
       'name': author,
       'quote': quote
     })
 
-    this.setState({'quotes': newArray});
-    localStorage.setItem('quotes', JSON.stringify(newArray));
+    this.setState({
+      'quotes': quoteArray,
+      'currentIndex' : this.state.currentIndex + 1
+    });
+    localStorage.setItem('quotes', JSON.stringify(quoteArray));
+  }
+
+  handleQuoteDelete(quoteID){
+    //Delete the quote with the specified ID from state and localstorage.
+    let quoteArray = this.state.quotes.slice();
+    quoteArray = quoteArray.filter(item => {
+      return item.id !== quoteID
+    });
+
+    this.setState({'quotes': quoteArray});
+    localStorage.setItem('quotes', JSON.stringify(quoteArray));
   }
 
   render() {
     return (
       <div className="App">
         <h1>Quote keeper</h1>
-        <QuoteCollection quotes={this.state.quotes} />
-        <QuoteAdder passUpData={this.handleSubmit} />
+        <QuoteCollection quotes={this.state.quotes} deleteQuote={this.handleQuoteDelete}/>
+        <QuoteAdder onSubmit={this.handleQuoteSubmit} />
       </div>
     );
   }

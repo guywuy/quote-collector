@@ -1,8 +1,7 @@
-Ability to delete quotes, and move them up or down.
+Ability to move quotes up or down, edit them.
 
 Use modernizer to check capabilities of browsers... for localstorage? and placeholders in form.
 
-Add proptypes (e.g. array to QuoteCollection)
 
 Format quotes better and style all content.
   Style form as a grid whole top level for quote input,

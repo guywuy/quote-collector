@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class QuoteAdder extends React.Component {
   constructor(props){
@@ -10,8 +11,7 @@ export class QuoteAdder extends React.Component {
     ev.preventDefault();
     let formQuote = document.getElementById('submitted-quote').value;
     let formName = document.getElementById('submitted-quote-name').value;
-    console.log(formName);
-    this.props.passUpData(formQuote, formName);
+    this.props.onSubmit(formQuote, formName);
   }
 
   render() {
@@ -36,3 +36,7 @@ export class QuoteAdder extends React.Component {
     );
   }
 }
+
+QuoteAdder.propTypes = {
+  onSubmit: PropTypes.func
+};
