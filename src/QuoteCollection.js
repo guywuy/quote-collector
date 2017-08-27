@@ -21,7 +21,7 @@ export class QuoteCollection extends React.Component {
     }
     return (
       <div className="quote-collection">
-        <h1>All your quotes</h1>
+        <h2>All your quotes</h2>
         {quotesDisplay}
       </div>
     );

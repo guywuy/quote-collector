@@ -1,8 +1,9 @@
-Ability to move quotes up or down, edit them.
+Ability to move quotes up or down (drag and drop?), edit them.
+Ability to sort by quote author.
+
+
 
 Use modernizer to check capabilities of browsers... for localstorage? and placeholders in form.
 
 
-
-Style Responsively = big screen have left half quotes, right half addquoteform
 smallscreen one on top, show max of 5 quotes.

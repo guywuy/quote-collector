@@ -18,7 +18,8 @@ export class QuoteAdder extends React.Component {
 
     return (
       <div className="quote-adder">
-        <h1>Add a quote</h1>
+      <details>
+      <summary><h2>+ Add a quote</h2></summary>
         <form onSubmit={this.handleSubmit} >
           <label htmlFor='submitted-quote'> Quote </label>
           <input type="text" required id="submitted-quote" name="submitted-quote" placeholder="Your quote here"/>
@@ -26,6 +27,7 @@ export class QuoteAdder extends React.Component {
           <input type="text" required id="submitted-quote-name" name="submitted-quote-name" placeholder="Who said that?"/>
           <input type="submit" id="submit-input"  />
         </form>
+        </details>
       </div>
     );
   }

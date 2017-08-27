@@ -8,9 +8,12 @@ export function Quote(props){
 
     return (
       <div className="quote">
+      <details>
+        <summary>{props.name}</summary>
         <p className='quote-content'>{props.quote}</p>
         <p className='quote-author'>{props.name}</p>
         <button className='quote-delete' onClick={handleClick}>x</button>
+        </details>
       </div>
     );
 
