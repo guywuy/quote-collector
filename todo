@@ -1,9 +1,8 @@
 Ability to move quotes up or down (drag and drop?), edit them.
-Ability to sort by quote author.
-
-
 
 Use modernizer to check capabilities of browsers... for localstorage? and placeholders in form.
 
+Show max of 5 quotes.
 
-smallscreen one on top, show max of 5 quotes.
+Add colour scheme - different sets of colours for div background and quote text colour.
+Improve styling of details/summary format.
