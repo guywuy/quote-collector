@@ -14,22 +14,21 @@ export class QuoteCollection extends React.Component {
     this.setSortMethod = this.setSortMethod.bind(this);
   }
   setSortMethod(method, switchDir=false){
-    let currentDir = this.state.sortDir;
-    // If we need to switch the direction of sort, update state with direction
-    // as well as method, else just update method
-    if (switchDir){
-      let sortDir;
-      currentDir==='asc' ? sortDir='desc' : sortDir='asc';
-      this.setState({
-        'sortBy' : method,
-        'sortDir' : sortDir
-      })
-    } else {
-      this.setState({
-        'sortBy' : method
-      })
+    this.setState((prevState) => {
+      // If we need to switch the direction of sort, update state with direction
+      // as well as method, else just update method
+      if (switchDir){
+        let sortDir = prevState.sortDir === 'asc' ? 'desc' : 'asc';
+        return {
+          'sortBy' : method,
+          'sortDir' : sortDir
+        }
+      } else {
+        return {'sortBy' : method}
+      }
+    });
   }
-  }
+
   sortByName(quotes){
     let sortDirection = this.state.sortDir;
     console.log('Sorting by name, direction = ' + sortDirection);
@@ -75,7 +74,7 @@ export class QuoteCollection extends React.Component {
     } else {
       this.state.sortBy === 'name' ? this.sortByName(quotes) : this.sortById(quotes);
       quotesDisplay = quotes.map((quote, index)=>{
-        return <Quote name={quote.name} quote={quote.quote} identity={quote.id} key={index} deleteQuote={this.props.deleteQuote} />
+        return <Quote name={quote.name} quote={quote.quote} identity={quote.id} key={index} deleteQuote={this.props.deleteQuote} editQuote={this.props.editQuote} />
       })
     }
     return (

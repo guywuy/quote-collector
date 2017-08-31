@@ -10,3 +10,13 @@ Add colour scheme - different sets of colours for div background and quote text 
 Make quote adder form have text area instead of text input?
 
 Better styling!
+
+
+
+
+
+Editing quote status
+  - have function working in app.js - expects an id and content.
+  - have necessary props/functions in quotecollection.
+  - have edit button in Quote.
+  - have form with input to change quote and button and functions to submit new quote

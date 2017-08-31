@@ -12,6 +12,7 @@ class App extends Component {
     };
     this.handleQuoteSubmit = this.handleQuoteSubmit.bind(this);
     this.handleQuoteDelete = this.handleQuoteDelete.bind(this);
+    this.handleQuoteEdit = this.handleQuoteEdit.bind(this);
   }
 
   componentWillMount(){
@@ -55,11 +56,24 @@ class App extends Component {
     localStorage.setItem('quotes', JSON.stringify(quoteArray));
   }
 
+  handleQuoteEdit(quoteID, content){
+    //Edit the content of a quote.
+    let quoteArray = this.state.quotes.slice();
+    quoteArray.forEach((quote)=>{
+      if(quote.id===quoteID){
+        quote.quote = content;
+      }
+    })
+
+    this.setState({'quotes': quoteArray});
+    localStorage.setItem('quotes', JSON.stringify(quoteArray));
+  }
+
   render() {
     return (
       <div className="App">
         <h1>Quote keeper</h1>
-        <QuoteCollection quotes={this.state.quotes} deleteQuote={this.handleQuoteDelete}/>
+        <QuoteCollection quotes={this.state.quotes} deleteQuote={this.handleQuoteDelete} editQuote={this.handleQuoteEdit} />
         <QuoteAdder onSubmit={this.handleQuoteSubmit} />
       </div>
     );

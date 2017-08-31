@@ -58,17 +58,20 @@ h2 {
 .quote-author::before{
   content: '- ';
 }
-.quote-delete{
+.quote-button{
   position: absolute;
   top: 0;
   right: 0;
   background: none;
   border: none;
-  font-size: 1.4em;
+  font-size: 0.8em;
   color: grey;
 }
-.quote-delete:hover{
+.quote-button:hover{
   cursor: pointer;
+}
+#quote-edit{
+  right: 4em;
 }
 .quote-adder{
   margin: 2em 0;
@@ -79,7 +82,7 @@ h2 {
     top: 0;
     right: 1em;
   }
-  form{
+  .quote-adder form{
     min-width: 600px;
   }
 }
@@ -89,7 +92,7 @@ h2 {
     margin: 0 auto;
   }
 }
-form {
+.quote-adder form {
   max-width: 800px;
   display: grid;
   grid-gap: 10px;
@@ -101,7 +104,7 @@ label{
   margin-left: 2em;
   font-weight: bold;
 }
-input{
+.quote-adder input{
   padding-left: 1em;
   width: 100%;
 }
@@ -111,12 +114,23 @@ input{
 #submitted-quote-name{
   grid-column: 2/3;
 }
-input[type=submit]{
-  background: none;
+input[type=submit], #cancel-edit{
+  background: white;
   border: 1px solid black;
   /*grid-row: 3;*/
 }
-
+.quote-editor{
+  z-index: 100;
+  position: absolute;
+  top: 10px;
+  box-shadow: 5px 5px 800px 600px rgba(128, 128, 128, 0.45);
+}
+.quote-editor input, button{
+  padding: 2.6em;
+}
+.quote-editor input[type=text]{
+  width:460px;
+}
 summary {
   display: block;
 }
@@ -126,8 +140,4 @@ summary::-webkit-details-marker {
 }
 summary:hover{
   cursor: pointer;
-}
-.quote summary::before{
-  content: '+';
-  padding-right: 1em;
 }
