@@ -7,25 +7,48 @@ export class QuoteCollection extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      'sortBy' : 'name'
+      'sortBy' : 'name',
+      'sortDir' : 'asc'
     }
 
     this.setSortMethod = this.setSortMethod.bind(this);
   }
-  setSortMethod(method){
-    this.setState({
-      'sortBy' : method
-    })
+  setSortMethod(method, switchDir=false){
+    let currentDir = this.state.sortDir;
+    // If we need to switch the direction of sort, update state with direction
+    // as well as method, else just update method
+    if (switchDir){
+      let sortDir;
+      currentDir==='asc' ? sortDir='desc' : sortDir='asc';
+      this.setState({
+        'sortBy' : method,
+        'sortDir' : sortDir
+      })
+    } else {
+      this.setState({
+        'sortBy' : method
+      })
+  }
   }
   sortByName(quotes){
+    let sortDirection = this.state.sortDir;
+    console.log('Sorting by name, direction = ' + sortDirection);
     return quotes.sort(function(a, b) {
       var nameA = a.name.toUpperCase(); // ignore upper and lowercase
       var nameB = b.name.toUpperCase(); // ignore upper and lowercase
       if (nameA < nameB) {
-        return -1;
+        if(sortDirection==='asc'){
+          return -1;
+        } else {
+          return 1;
+        }
       }
       if (nameA > nameB) {
-        return 1;
+        if(sortDirection==='asc'){
+          return 1;
+        } else {
+          return -1;
+        }
       }
 
       // names must be equal
@@ -33,8 +56,13 @@ export class QuoteCollection extends React.Component {
     });
   }
   sortById(quotes){
+    let sortDirection = this.state.sortDir;
     return quotes.sort(function(a, b) {
-      return a.id - b.id
+      if(sortDirection==='asc'){
+        return a.id - b.id;
+      } else {
+        return b.id - a.id;
+      }
     });
   }
 
@@ -55,8 +83,8 @@ export class QuoteCollection extends React.Component {
         <h2>All your quotes</h2>
         <div className="sort-buttons">
           Sort by:
-          <SortButton handleSort={this.setSortMethod} name='date added' method='id' />
-          <SortButton handleSort={this.setSortMethod} name='author' method='name' />
+          <SortButton handleSort={this.setSortMethod} name='date added' method='id' direction={this.state.sortDir} />
+          <SortButton handleSort={this.setSortMethod} name='author' method='name' direction={this.state.sortDir} />
         </div>
         {quotesDisplay}
       </div>

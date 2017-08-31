@@ -22,6 +22,10 @@ h2 {
   font-size: 1em;
   padding: 0.6em 1em;
 }
+.sort-button.active{
+  font-weight: bold;
+  border: 2px solid;
+}
 .quote{
     max-width: 800px;
     position: relative;
@@ -124,6 +128,6 @@ summary:hover{
   cursor: pointer;
 }
 .quote summary::before{
-  content: '\\/';
+  content: '+';
   padding-right: 1em;
 }

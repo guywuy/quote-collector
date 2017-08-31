@@ -21,7 +21,7 @@ class App extends Component {
     } else {
       let storedQuotes = JSON.parse(localStorage.getItem('quotes'));
       let lastIndex = storedQuotes.length>0 ? storedQuotes[storedQuotes.length-1].id : -1;
-      console.log(lastIndex);
+      console.log('Last index = ' + lastIndex);
       this.setState({
         'quotes' : storedQuotes,
         'currentIndex' : lastIndex + 1
