@@ -18,7 +18,7 @@ export class QuoteEditor extends React.Component {
       <div className="quote-editor">
         <form onSubmit={this.handleSubmit}>
           <input type='text' id='edited-quote' placeholder={this.props.quote} defaultValue={this.props.quote} />
-          <input type='submit' />
+          <input type='submit' id='edit-quote-submit' />
           <button id='cancel-edit' onClick={this.props.unmountEdit} >Cancel</button>
         </form>
       </div>

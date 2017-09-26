@@ -31,7 +31,7 @@ export class QuoteCollection extends React.Component {
 
   sortByName(quotes){
     let sortDirection = this.state.sortDir;
-    console.log('Sorting by name, direction = ' + sortDirection);
+    // console.log('Sorting by name, direction = ' + sortDirection);
     return quotes.sort(function(a, b) {
       var nameA = a.name.toUpperCase(); // ignore upper and lowercase
       var nameB = b.name.toUpperCase(); // ignore upper and lowercase

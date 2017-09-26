@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <title>Quotekeeper - keep your favourite quotes in one place</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
     <!--
@@ -19,6 +20,9 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script>
+    if(!window.localStorage) alert('You need a more modern browser to use this site!')
+    </script>
     <title>React App</title>
   </head>
   <body>

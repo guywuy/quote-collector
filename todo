@@ -1,22 +1,3 @@
-Ability to move quotes up or down (drag and drop?)
-Ability to edit quotes...
-
-Use modernizer to check capabilities of browsers... for localstorage? and placeholders in form.
-
-Show max of 5 quotes.
-
 Add colour scheme - different sets of colours for div background and quote text colour.
 
 Make quote adder form have text area instead of text input?
-
-Better styling!
-
-
-
-
-
-Editing quote status
-  - have function working in app.js - expects an id and content.
-  - have necessary props/functions in quotecollection.
-  - have edit button in Quote.
-  - have form with input to change quote and button and functions to submit new quote

@@ -12,6 +12,7 @@ export class QuoteAdder extends React.Component {
     let formQuote = document.getElementById('submitted-quote').value;
     let formName = document.getElementById('submitted-quote-name').value;
     this.props.onSubmit(formQuote, formName);
+    ev.target.reset();
   }
 
   render() {

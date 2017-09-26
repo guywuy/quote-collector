@@ -22,7 +22,7 @@ class App extends Component {
     } else {
       let storedQuotes = JSON.parse(localStorage.getItem('quotes'));
       let lastIndex = storedQuotes.length>0 ? storedQuotes[storedQuotes.length-1].id : -1;
-      console.log('Last index = ' + lastIndex);
+      // console.log('Last index = ' + lastIndex);
       this.setState({
         'quotes' : storedQuotes,
         'currentIndex' : lastIndex + 1
@@ -72,7 +72,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Quote keeper</h1>
+        <h1 className='main-title'>Quote keeper</h1>
         <QuoteCollection quotes={this.state.quotes} deleteQuote={this.handleQuoteDelete} editQuote={this.handleQuoteEdit} />
         <QuoteAdder onSubmit={this.handleQuoteSubmit} />
       </div>

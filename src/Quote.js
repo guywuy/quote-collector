@@ -38,7 +38,7 @@ export class Quote extends React.Component{
       <p className='quote-content'>{this.props.quote}</p>
       <p className='quote-author'>{this.props.name}</p>
       <button className='quote-button' id='quote-edit' onClick={this.handleEditClick}>edit</button>
-      <button className='quote-button' id='quote-delete' onClick={this.handleDeleteClick}>delete</button>
+      <button className='quote-button' id='quote-delete' onClick={this.handleDeleteClick}>&times;</button>
 
       </div>
     );
